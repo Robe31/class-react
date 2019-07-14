@@ -3,11 +3,17 @@ class Greeting extends React.Component {
     render(){
         const date = new Date()
         const hours = date.getHours()
-        let timeOfDay = hours.toLocaleString()
+        let timeOfDay
+        
+        if (hours < 12){
+            timeOfDay = "morning"
+        } else if (hours >= 12 < 17) {
+            timeOfDay = "afternoon"
+        } else {
+            timeOfDay = "night"
+        }
         return (
-            <div>
-                It's {timeOfDay}:00
-            </div>
+            <h1>Good {timeOfDay} to you, mate</h1>
         )
     }
 }
